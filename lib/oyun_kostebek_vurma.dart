@@ -5,7 +5,6 @@ import 'package:arcade_motoru/kostebek.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const kostebekId = 'oyun-kostebek-vurma';
 
@@ -88,7 +87,7 @@ final kostebekConfig = GameConfig(
   rules: kostebekRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => kostebekRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => kostebekRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintMoles(c, s, p, t);
